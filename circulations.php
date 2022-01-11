@@ -1,10 +1,10 @@
 <?php
-//$context = stream_context_create($opts);
-//$opts = array('http' => array('proxy'=> 'tcp://www-cache:3128', 'request_fulluri'=> true));
-//$context = stream_context_create($opts);
+
+$opts = array('http' => array('proxy'=> 'tcp://www-cache:3128'));
+$context = stream_context_create($opts);
 //point gps mairie notre dame des landes 47.3803867,-1.7113826
 
-$meteo= file_get_contents("https://www.data.gouv.fr/fr/datasets/r/dd64be2b-0c8f-4d4b-ae29-dd7ab2fad637",false);
+$meteo= file_get_contents("https://data.loire-atlantique.fr/explore/dataset/224400028_info-route-departementale/download?format=json&timezone=Europe/Berlin&use_labels_for_header=false",false,$context);
 var_dump($meteo);
 ?>
 <!DOCTYPE html>
